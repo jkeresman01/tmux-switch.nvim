@@ -14,7 +14,9 @@ local M = {}
 
 function M.switch()
     local tmux_sessions = util.get_tmux_sessions()
-    local opts = themes.get_dropdown({})
+    local opts = themes.get_dropdown({
+        layout_config = { width = 50 }
+    })
 
     pickers.new(opts, {
         prompt_title = "TMUX switch",
@@ -72,8 +74,6 @@ function M.create_session()
         input:unmount()
     end)
 end
-
--- TODO quick switch implementation
 
 return M
 

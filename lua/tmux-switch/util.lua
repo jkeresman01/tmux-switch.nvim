@@ -20,22 +20,6 @@ function M.get_tmux_sessions()
     return tmux_sessions
 end
 
--- TODO use for quick switch 
-function M.get_current_tmux_session()
-    local display_current_tmux_session_cmd = "tmux display-message -p '#S'"
-    local handle = io.popen(display_current_tmux_session_cmd)
-
-    if not handle then
-        vim.notify "No can do for get current tmux session!"
-        return nil
-    end
-
-    local result = handle:read("*a")
-    handle:close()
-
-    return result:match("^%s*(.-)%s*$")
-end
-
 function M.switch_to_session(session_name)
     if session_name then
         local switch_to_session_cmd = string.format("tmux switch -t %s", session_name)
