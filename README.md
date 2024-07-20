@@ -1,11 +1,11 @@
 ## The problem :warning: ##
-You open Neovim, your preferred editor, and can't navigate switch to another TMUX session witouth leaving Neovim, or you just have many open sessions and wan't to switch fuzzy search for easier navigation within neovim.
+When you are in Neovim, switching between multiple TMUX sessions can be cumbersome, requiring you to leave your editor and manually navigate the command line. This disrupts your workflow, especially when managing numerous sessions. The constant context-switching between the terminal and Neovim slows down productivity and can be frustrating for users who need a more seamless experience.
 
 ## The solution :trophy: ##
 
-Tmux Switch is a Neovim plugin that allows you to switch between TMUX sessions using fuzzy find functionality.
+TMUX Switch solves this problem by integrating fuzzy search within Neovim, allowing you to quickly switch between TMUX sessions without leaving your editor. By using this plugin, you can navigate and manage your TMUX sessions directly from Neovim which improves your overall productivity.
 
-[![asciicast](https://asciinema.org/a/PriVhn7PnlcLsKmzzEHhEc2kz.svg)](https://asciinema.org/a/PriVhn7PnlcLsKmzzEHhEc2kz)
+[![asciicast](https://asciinema.org/a/27TU99A43TXp2578nZfWcKiZ6.svg)](https://asciinema.org/a/27TU99A43TXp2578nZfWcKiZ6)
 
 ### Functionalities :pick: ###
 
@@ -20,21 +20,13 @@ Tmux Switch is a Neovim plugin that allows you to switch between TMUX sessions u
 
 ***
 
-use {
- , -- Dependency for NUI
-  'nvim-lua/popup.nvim',  -- Optional: for enhanced popup functionality
-  'nvim-telescope/telescope.nvim', -- For Telescope functionalities
-  'MunifTanjim/nui.nvim' -- NUI plugin
-}
-
-
 `Vim-Plug`  
 ```lua
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'MunifTanjim/nui.nvim'
 
-Plug ''MunifTanjim/nui.nvim'
+Plug 'MunifTanjim/nui.nvim'
 ```
 
 `Packer`
