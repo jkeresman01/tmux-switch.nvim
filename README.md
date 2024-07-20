@@ -26,7 +26,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'MunifTanjim/nui.nvim'
 
-Plug 'MunifTanjim/nui.nvim'
+Plug 'jkeresman01/tmux-switch.nvim'
 ```
 
 `Packer`
@@ -40,7 +40,7 @@ use {
 
 use 'MunifTanjim/nui.nvim'
 
-use 'jkeresman01/jkeresman01/tmux-switch.nvim'
+use 'jkeresman01/tmux-switch.nvim'
 ```
 ***
 
