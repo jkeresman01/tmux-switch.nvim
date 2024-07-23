@@ -44,13 +44,13 @@ function M.create_session()
         position = "50%",
 
         size = {
-            width = 40,
+            width = 50,
         },
 
         border = {
             style = "rounded",
             text = {
-                top = "TMUX switch",
+                top = "[ TMUX switch ]",
                 top_align = "center",
             },
         },
