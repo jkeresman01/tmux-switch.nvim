@@ -11,6 +11,7 @@ TMUX Switch solves this problem by integrating fuzzy search within Neovim, allow
 
 - [x] Fuzzy find trough all tmux session and navigate to selected one
 - [x] Floating UI for creating new sessions
+- [x] Floating UI for renaming current session
 - [ ] Quick switch between 2 most used sessions
 
 ### Installation :star: ###
