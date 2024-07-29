@@ -34,4 +34,24 @@ function M.create_new_session(session_name)
     end
 end
 
+function M.get_current_tmux_session()
+    local display_current_tmux_session_cmd = "tmux display-message -p '#S'"
+    local handle = io.popen(display_current_tmux_session_cmd)
+
+    if not handle then
+        vim.notify "No can do for get current tmux session!"
+        return nil
+    end
+
+    local result = handle:read("*a")
+    handle:close()
+
+    return result:match("^%s*(.-)%s*$")
+end
+
+function M.rename_current_session(new_session_name)
+    local rename_current_session_cmd = string.format("tmux rename-session %s", new_session_name)
+    vim.fn.system(rename_current_session_cmd)
+end
+
 return M

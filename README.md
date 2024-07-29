@@ -53,6 +53,8 @@ local tmux = require('tmux-switch')
 
 vim.keymap.set("n", "<C-f>", function () tmux.switch() end)
 vim.keymap.set("n", "<leader>cs", function () tmux.create_session() end)
+vim.keymap.set("n", "<leader>rs", function () tmux.rename_session() end)
+
 ```
 ***
 
@@ -60,6 +62,7 @@ vim.keymap.set("n", "<leader>cs", function () tmux.create_session() end)
 |---------------|--------------------------------------------------------------------|
 | `<C-f>`       | Lunch TMUX switch UI (fuzzy search trough tmux sessions)           |
 | `<leader>cs`  | Lunch TMUX switch UI (create new TMUX session and name it)         |
+| `<leader>rs`  | Lunch TMUX switch UI (rename current TMUX session)                 |
 
 
 

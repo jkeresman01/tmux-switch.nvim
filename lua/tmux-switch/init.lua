@@ -75,5 +75,41 @@ function M.create_session()
     end)
 end
 
+function M.rename_session()
+    local input = nui_input({
+        position = "50%",
+
+        size = {
+            width = 50,
+        },
+
+        border = {
+            style = "rounded",
+            text = {
+                top = "[ TMUX switch ]",
+                top_align = "center",
+            },
+        },
+
+        win_options = {
+            winhighlight = "Normal:Normal,FloatBorder:Normal",
+        },
+    }, {
+        prompt = "> ",
+        default_value = util.get_current_tmux_session(),
+
+        on_submit = function(new_session_name)
+            util.rename_current_session(new_session_name)
+        end,
+    })
+
+    input:mount()
+
+    input:on(event.BufLeave, function()
+        input:unmount()
+    end)
+end
+
+
 return M
 
