@@ -5,7 +5,7 @@ function M.get_tmux_sessions()
     local handle = io.popen(list_tmux_sessions_cmd)
 
     if not handle then
-        vim.notify "No can do for getting tmux sessions!"
+        vim.notify("No can do for getting tmux sessions!")
         return {}
     end
 
@@ -39,7 +39,7 @@ function M.get_current_tmux_session()
     local handle = io.popen(display_current_tmux_session_cmd)
 
     if not handle then
-        vim.notify "No can do for get current tmux session!"
+        vim.notify("No can do for get current tmux session!")
         return nil
     end
 

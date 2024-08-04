@@ -1,13 +1,13 @@
-local util = require('tmux-switch.util')
+local util = require("tmux-switch.util")
 
-local actions = require('telescope.actions')
-local action_state = require('telescope.actions.state')
-local finders = require('telescope.finders')
-local pickers = require('telescope.pickers')
-local sorters = require('telescope.sorters')
-local themes = require('telescope.themes')
+local actions = require("telescope.actions")
+local action_state = require("telescope.actions.state")
+local finders = require("telescope.finders")
+local pickers = require("telescope.pickers")
+local sorters = require("telescope.sorters")
+local themes = require("telescope.themes")
 
-local nui_input = require('nui.input')
+local nui_input = require("nui.input")
 local event = require("nui.utils.autocmd").event
 
 local M = {}
@@ -15,28 +15,29 @@ local M = {}
 function M.switch()
     local tmux_sessions = util.get_tmux_sessions()
     local opts = themes.get_dropdown({
-        layout_config = { width = 50 }
+        layout_config = { width = 50 },
     })
 
-    pickers.new(opts, {
-        prompt_title = "TMUX switch",
+    pickers
+        .new(opts, {
+            prompt_title = "TMUX switch",
 
-        finder = finders.new_table {
-            results = tmux_sessions,
-        },
+            finder = finders.new_table({
+                results = tmux_sessions,
+            }),
 
-        sorter = sorters.get_generic_fuzzy_sorter(opts),
+            sorter = sorters.get_generic_fuzzy_sorter(opts),
 
-        attach_mappings = function(_, map)
-            map("i", "<CR>", function(prompt_bufnr)
-                local selected_session = action_state.get_selected_entry()
-                actions.close(prompt_bufnr)
-                util.switch_to_session(selected_session.value)
-            end)
-            return true
-        end,
-
-    }):find()
+            attach_mappings = function(_, map)
+                map("i", "<CR>", function(prompt_bufnr)
+                    local selected_session = action_state.get_selected_entry()
+                    actions.close(prompt_bufnr)
+                    util.switch_to_session(selected_session.value)
+                end)
+                return true
+            end,
+        })
+        :find()
 end
 
 function M.create_session()
@@ -110,6 +111,4 @@ function M.rename_session()
     end)
 end
 
-
 return M
-
