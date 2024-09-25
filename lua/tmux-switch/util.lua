@@ -2,7 +2,7 @@ local M = {}
 
 --- Retrieves a list of tmux session names
 --
--- @return a list of tmux session names
+-- @return: List of tmux session names
 function M.get_tmux_sessions()
     local list_tmux_sessions_cmd = "tmux ls | awk -F ':' '{print $1}'"
     local handle = io.popen(list_tmux_sessions_cmd)
@@ -25,7 +25,7 @@ end
 
 --- Switches to a specified tmux session.
 --
--- @param session_name The name of the tmux session to switch to.
+-- @param session_name: The name of the tmux session to switch to.
 function M.switch_to_session(session_name)
     if session_name then
         local switch_to_session_cmd = string.format("tmux switch -t %s", session_name)
@@ -45,7 +45,7 @@ end
 
 --- Retrieves the name of the current tmux session.
 --
--- @return string|nil The name of the current tmux session, or nil if the session cannot be retrieved.
+-- @return string|nil: The name of the current tmux session, or nil if the session cannot be retrieved.
 function M.get_current_tmux_session()
     local display_current_tmux_session_cmd = "tmux display-message -p '#S'"
     local handle = io.popen(display_current_tmux_session_cmd)
@@ -63,11 +63,10 @@ end
 
 --- Renames the current tmux session.
 --
--- @param new_session_name The new name for the current tmux session.
+-- @param new_session_name: The new name for the current tmux session.
 function M.rename_current_session(new_session_name)
     local rename_current_session_cmd = string.format("tmux rename-session %s", new_session_name)
     vim.fn.system(rename_current_session_cmd)
 end
 
 return M
-

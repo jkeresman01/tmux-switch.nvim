@@ -24,4 +24,4 @@ function M.rename_session()
     end)
 end
 
-return  M
+return M
