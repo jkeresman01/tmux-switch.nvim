@@ -1,4 +1,5 @@
-local util = require("tmux-switch.ui")
+local ui = require("tmux-switch.ui")
+local util = require("tmux-switch.util")
 
 local M = {}
 
