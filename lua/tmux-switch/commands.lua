@@ -7,7 +7,7 @@ function M.register()
     vim.api.nvim_create_user_command("TmuxSwitch", function()
         tmux.switch()
     end, {
-        desc = "Run Tmux switch picker",
+        desc = "Run tmux switch picker",
     })
 
     vim.api.nvim_create_user_command("TmuxCreateSession", function()
