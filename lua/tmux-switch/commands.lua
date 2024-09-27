@@ -2,7 +2,6 @@ local tmux = require("tmux-switch.tmux")
 
 local M = {}
 
--- Function that registers all the commands exposed to Neovim
 function M.register()
     vim.api.nvim_create_user_command("TmuxSwitch", function()
         tmux.switch()

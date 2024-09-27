@@ -12,11 +12,6 @@ local event = require("nui.utils.autocmd").event
 
 local M = {}
 
---- General function to handle user input for session-related tasks.
---
--- @param prompt_text: The text displayed at the top of the input window.
--- @param default_value: The default value to display in the input prompt (if any).
--- @param on_submit: Callback function to execute when the input is submitted.
 function M.create_input_prompt(prompt_text, default_value, on_submit)
     local input = nui_input({
         position = "50%",
@@ -50,10 +45,6 @@ function M.create_input_prompt(prompt_text, default_value, on_submit)
     end)
 end
 
---- Helper function to create and display a tmux session picker.
--- Allows user to select a tmux session from a dropdown menu.
---
--- @param tmux_sessions: List of tmux session names to display.
 function M.show_tmux_session_picker(tmux_sessions)
     local opts = themes.get_dropdown({
         layout_config = { width = 50 },
