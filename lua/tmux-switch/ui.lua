@@ -58,7 +58,7 @@ function M.show_tmux_session_picker(tmux_sessions)
                 results = tmux_sessions,
             }),
 
-            sorter = sorters.generic_sorter({}),
+            sorter = sorters.get_generic_fuzzy_sorter(opts),
 
             attach_mappings = function(prompt_bufnr)
                 actions.select_default:replace(function()
