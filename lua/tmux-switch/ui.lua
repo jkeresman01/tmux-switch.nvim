@@ -58,13 +58,11 @@ function M.show_tmux_session_picker(tmux_sessions)
                 results = tmux_sessions,
             }),
 
-            sorter = sorters.get_generic_fuzzy_sorter(opts),
+            sorter = sorters.generic_sorter({}),
 
-            attach_mappings = function(_, map)
-                map("i", "<CR>", function(prompt_bufnr)
-                    local selected_session = action_state.get_selected_entry()
-                    actions.close(prompt_bufnr)
-                    util.switch_to_session(selected_session.value)
+            attach_mappings = function(prompt_bufnr)
+                actions.select_default:replace(function()
+                    util.switch_to_session(prompt_bufnr)
                 end)
                 return true
             end,
