@@ -62,7 +62,12 @@ function M.show_tmux_session_picker(tmux_sessions)
 
             attach_mappings = function(prompt_bufnr)
                 actions.select_default:replace(function()
-                    util.switch_to_session(prompt_bufnr)
+                    actions.close(prompt_bufnr)
+                    local selected_session = action_state.get_selected_entry()
+                    if selected_session then
+                        util.switch_to_session(selected_session.value)
+                    end
+
                 end)
                 return true
             end,
