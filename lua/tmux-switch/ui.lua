@@ -67,7 +67,6 @@ function M.show_tmux_session_picker(tmux_sessions)
                     if selected_session then
                         util.switch_to_session(selected_session.value)
                     end
-
                 end)
                 return true
             end,
