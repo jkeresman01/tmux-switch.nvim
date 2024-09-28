@@ -16,8 +16,8 @@
 - [Repository structure](#repo)
 - [Functionalities](#functionalities)
 - [Installation](#installation)
-    - [Vim-Plug] (#vimplug)
-    - [Packer] (#packer)
+    - [Vim-Plug](#vimplug)
+    - [Packer](#packer)
 - [Commands](#commands)
 - [Setup](#setup)
 
@@ -60,7 +60,7 @@ tmux-switch.nvim/
 * Install using you plugin manager
 
 
-`Vim-Plug`  
+### Vim Plug :star: <a name="vimplug"></a> ###
 ```lua
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
@@ -69,7 +69,7 @@ Plug 'MunifTanjim/nui.nvim'
 Plug 'jkeresman01/tmux-switch.nvim'
 ```
 
-`Packer`
+### Packer :star: <a name="packer"></a> ###
 ```lua
 
 use {
