@@ -60,7 +60,7 @@ tmux-switch.nvim/
 * Install using you plugin manager
 
 
-### Vim Plug :star: <a name="vimplug"></a> ###
+#### Vim Plug :star: <a name="vimplug"></a> ####
 ```lua
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
@@ -69,7 +69,7 @@ Plug 'MunifTanjim/nui.nvim'
 Plug 'jkeresman01/tmux-switch.nvim'
 ```
 
-### Packer :star: <a name="packer"></a> ###
+#### Packer :star: <a name="packer"></a> ####
 ```lua
 
 use {
@@ -85,6 +85,8 @@ use 'jkeresman01/tmux-switch.nvim'
 ***
 
 ## Commands :wrench: <a name="commands"></a> ##
+
+Following commands have been exposed to Neovim:
 
 `Commands`
 ```lua
