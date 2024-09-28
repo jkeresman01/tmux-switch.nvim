@@ -30,7 +30,7 @@ TMUX Switch solves this problem by integrating fuzzy search within Neovim, allow
 
 [![asciicast](https://asciinema.org/a/27TU99A43TXp2578nZfWcKiZ6.svg)](https://asciinema.org/a/27TU99A43TXp2578nZfWcKiZ6)
 
-## Repository structure <a name="repo"></a> ##
+## Repository structure :open_file_folder: <a name="repo"></a> ##
 
 ```bash
 tmux-switch.nvim/
@@ -60,7 +60,7 @@ tmux-switch.nvim/
 * Install using you plugin manager
 
 
-#### Vim Plug :star: <a name="vimplug"></a> ####
+#### Vim Plug <a name="vimplug"></a> ####
 ```lua
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
@@ -69,7 +69,7 @@ Plug 'MunifTanjim/nui.nvim'
 Plug 'jkeresman01/tmux-switch.nvim'
 ```
 
-#### Packer :star: <a name="packer"></a> ####
+#### Packer <a name="packer"></a> ####
 ```lua
 
 use {
