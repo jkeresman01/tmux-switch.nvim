@@ -25,6 +25,7 @@
 
 ## The problem :warning: <a name="problem"></a> ##
 When you are in Neovim, switching between multiple TMUX sessions can be cumbersome, requiring you to leave your editor and manually navigate the command line. This disrupts your workflow, especially when managing numerous sessions. The constant context-switching between the terminal and Neovim slows down productivity and can be frustrating for users who need a more seamless experience.
+***
 
 ## The solution :trophy: <a name="solution"></a> ##
 
@@ -32,6 +33,7 @@ TMUX Switch solves this problem by integrating fuzzy search within Neovim, allow
 
 [![asciicast](https://asciinema.org/a/27TU99A43TXp2578nZfWcKiZ6.svg)](https://asciinema.org/a/27TU99A43TXp2578nZfWcKiZ6)
 
+***
 
 
 ## Repository structure :open_file_folder: <a name="repo"></a> ##
@@ -48,7 +50,7 @@ tmux-switch.nvim/
 │       └── util.lua        # Utility functions
 └── README.md
 ```
-
+***
 
 ## Functionalities :pick: <a name="functionalities"></a> ##
 
@@ -56,15 +58,14 @@ tmux-switch.nvim/
 - [x] Floating UI for creating new sessions
 - [x] Floating UI for renaming current session
 - [ ] Quick switch between 2 most used sessions
-
-
+***
 
 ## Installation :star: <a name="installation"></a> ##
  * Make sure you have Neovim v0.9.0 or greater. :exclamation:
  * Dependecies: nui && telescope && plenary (telescope dep)
  * Install using you plugin manager
 
-
+***
 
 #### Vim Plug <a name="vimplug"></a> ####
 ```lua
@@ -74,8 +75,7 @@ Plug 'MunifTanjim/nui.nvim'
 
 Plug 'jkeresman01/tmux-switch.nvim'
 ```
-
-
+***
 
 #### Packer <a name="packer"></a> ####
 ```lua
@@ -90,8 +90,7 @@ use 'MunifTanjim/nui.nvim'
 
 use 'jkeresman01/tmux-switch.nvim'
 ```
-
-
+***
 
 ## Commands :wrench: <a name="commands"></a> ##
 
@@ -106,7 +105,7 @@ Following commands have been exposed to Neovim:
 
 ```
 
-
+***
 
 ## Setup :wrench: <a name="setup"></a> ##
 
@@ -120,7 +119,7 @@ vim.keymap.set("n", "<leader>cs", "<CMD>TmuxCreateSession<CR>"
 vim.keymap.set("n", "<leader>rs", "<CMD>TmuxRenameSession<CR>"
 
 ```
-
+***
 
 | Key - map     | Action                                                             |
 |---------------|--------------------------------------------------------------------|
