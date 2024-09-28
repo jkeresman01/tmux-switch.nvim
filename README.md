@@ -44,7 +44,6 @@ tmux-switch.nvim/
 │       └── util.lua        # Utility functions
 └── README.md
 ```
-***
 
 ## Functionalities :pick: <a name="functionalities"></a> ##
 
@@ -52,13 +51,11 @@ tmux-switch.nvim/
 - [x] Floating UI for creating new sessions
 - [x] Floating UI for renaming current session
 - [ ] Quick switch between 2 most used sessions
-***
 
 ## Installation :star: <a name="installation"></a> ##
-* Make sure you have Neovim v0.9.0 or greater. :exclamation:
-* Dependecies: nui && telescope && plenary (telescope dep)
-* Install using you plugin manager
-
+ * Make sure you have Neovim v0.9.0 or greater. :exclamation:
+ * Dependecies: nui && telescope && plenary (telescope dep)
+ * Install using you plugin manager
 
 #### Vim Plug <a name="vimplug"></a> ####
 ```lua
@@ -82,7 +79,6 @@ use 'MunifTanjim/nui.nvim'
 
 use 'jkeresman01/tmux-switch.nvim'
 ```
-***
 
 ## Commands :wrench: <a name="commands"></a> ##
 
@@ -96,7 +92,6 @@ Following commands have been exposed to Neovim:
 :TmuxRenameSession      -- Rename current tmux session
 
 ```
-***
 
 ## Setup :wrench: <a name="setup"></a> ##
 
@@ -110,7 +105,6 @@ vim.keymap.set("n", "<leader>cs", "<CMD>TmuxCreateSession<CR>"
 vim.keymap.set("n", "<leader>rs", "<CMD>TmuxRenameSession<CR>"
 
 ```
-***
 
 | Key - map     | Action                                                             |
 |---------------|--------------------------------------------------------------------|
