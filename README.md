@@ -13,9 +13,13 @@
 
 - [The problem](#problem)
 - [The solution](#solution)
+- [Repository structure](#repo)
 - [Functionalities](#functionalities)
 - [Installation](#installation)
-- [Key - mappings](#keymapings)
+    - [Vim-Plug] (#vimplug)
+    - [Packer] (#packer)
+- [Commands](#commands)
+- [Setup](#setup)
 
 ## The problem :warning: <a name="problem"></a> ##
 When you are in Neovim, switching between multiple TMUX sessions can be cumbersome, requiring you to leave your editor and manually navigate the command line. This disrupts your workflow, especially when managing numerous sessions. The constant context-switching between the terminal and Neovim slows down productivity and can be frustrating for users who need a more seamless experience.
@@ -26,19 +30,35 @@ TMUX Switch solves this problem by integrating fuzzy search within Neovim, allow
 
 [![asciicast](https://asciinema.org/a/27TU99A43TXp2578nZfWcKiZ6.svg)](https://asciinema.org/a/27TU99A43TXp2578nZfWcKiZ6)
 
-### Functionalities :pick: <a name="functionalities"></a> ###
+## Repository structure <a name="repo"></a> ##
+
+```bash
+tmux-switch.nvim/
+├── LICENSE
+├── lua
+│   └── tmux-switch
+│       ├── commands.lua    # Commands exposed to Neovim
+│       ├── init.lua        # Plugin entry point
+│       ├── tmux.lua        # Tmux commands related logic
+│       ├── ui.lua          # UI logic (pickers and layout)
+│       └── util.lua        # Utility functions
+└── README.md
+```
+***
+
+## Functionalities :pick: <a name="functionalities"></a> ##
 
 - [x] Fuzzy find trough all tmux session and navigate to selected one
 - [x] Floating UI for creating new sessions
 - [x] Floating UI for renaming current session
 - [ ] Quick switch between 2 most used sessions
+***
 
-### Installation :star: <a name="installation"></a> ###
+## Installation :star: <a name="installation"></a> ##
 * Make sure you have Neovim v0.9.0 or greater. :exclamation:
 * Dependecies: nui && telescope && plenary (telescope dep)
 * Install using you plugin manager
 
-***
 
 `Vim-Plug`  
 ```lua
@@ -64,16 +84,28 @@ use 'jkeresman01/tmux-switch.nvim'
 ```
 ***
 
-## Key - mapings :musical_keyboard: <a name="keymapings"></a> ##
+## Commands :wrench: <a name="commands"></a> ##
+
+`Commands`
+```lua
+
+:TmuxSwitch             -- Lunch picker (select tmux session to switch to)
+:TmuxCreateSession      -- Create new session and give it a name
+:TmuxRenameSession      -- Rename current tmux session
+
+```
+***
+
+## Setup :wrench: <a name="setup"></a> ##
 
 Set the keymapings as you see fit, here is one example:
 
 ```lua
-local tmux = require('tmux-switch')
+require('tmux-switch').setup()
 
-vim.keymap.set("n", "<C-f>", function () tmux.switch() end)
-vim.keymap.set("n", "<leader>cs", function () tmux.create_session() end)
-vim.keymap.set("n", "<leader>rs", function () tmux.rename_session() end)
+vim.keymap.set("n", "<C-f>", "<CMD>TmuxSwitch<CR>")
+vim.keymap.set("n", "<leader>cs", "<CMD>TmuxCreateSession<CR>"
+vim.keymap.set("n", "<leader>rs", "<CMD>TmuxRenameSession<CR>"
 
 ```
 ***
@@ -83,20 +115,3 @@ vim.keymap.set("n", "<leader>rs", function () tmux.rename_session() end)
 | `<C-f>`       | Lunch TMUX switch UI (fuzzy search trough tmux sessions)           |
 | `<leader>cs`  | Lunch TMUX switch UI (create new TMUX session and name it)         |
 | `<leader>rs`  | Lunch TMUX switch UI (rename current TMUX session)                 |
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
