@@ -22,7 +22,6 @@
 - [Setup](#setup)
 
 
-
 ## The problem :warning: <a name="problem"></a> ##
 When you are in Neovim, switching between multiple TMUX sessions can be cumbersome, requiring you to leave your editor and manually navigate the command line. This disrupts your workflow, especially when managing numerous sessions. The constant context-switching between the terminal and Neovim slows down productivity and can be frustrating for users who need a more seamless experience.
 ***
@@ -65,7 +64,6 @@ tmux-switch.nvim/
  * Dependecies: nui && telescope && plenary (telescope dep)
  * Install using you plugin manager
 
-***
 
 #### Vim Plug <a name="vimplug"></a> ####
 ```lua
