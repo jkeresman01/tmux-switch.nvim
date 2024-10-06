@@ -1,17 +1,10 @@
-local util = require("tmux-switch.util")
-
-local actions = require("telescope.actions")
-local action_state = require("telescope.actions.state")
-local finders = require("telescope.finders")
-local pickers = require("telescope.pickers")
-local sorters = require("telescope.sorters")
-local themes = require("telescope.themes")
-
-local nui_input = require("nui.input")
-local event = require("nui.utils.autocmd").event
-
-local M = {}
-
+--- Creates an input prompt with customizable text and a default value
+--
+-- @param prompt_text The text to display at the top of the input prompt
+-- @param default_value The default value for the input (optional)
+-- @param on_submit The function to call when the user submits the input
+--
+-- @return nil
 function M.create_input_prompt(prompt_text, default_value, on_submit)
     local input = nui_input({
         position = "50%",
@@ -45,6 +38,11 @@ function M.create_input_prompt(prompt_text, default_value, on_submit)
     end)
 end
 
+--- Displays a tmux session picker using Telescope
+--
+-- @param tmux_sessions A list of tmux sessions to display in the picker
+--
+-- @return nil
 function M.show_tmux_session_picker(tmux_sessions)
     local opts = themes.get_dropdown({
         layout_config = { width = 50 },
