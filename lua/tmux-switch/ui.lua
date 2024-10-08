@@ -1,3 +1,17 @@
+local util = require("tmux-switch.util")
+
+local actions = require("telescope.actions")
+local action_state = require("telescope.actions.state")
+local finders = require("telescope.finders")
+local pickers = require("telescope.pickers")
+local sorters = require("telescope.sorters")
+local themes = require("telescope.themes")
+
+local nui_input = require("nui.input")
+local event = require("nui.utils.autocmd").event
+
+local M = {}
+
 --- Creates an input prompt with customizable text and a default value
 --
 -- @param prompt_text The text to display at the top of the input prompt
