@@ -107,7 +107,7 @@ Following commands have been exposed to Neovim:
 
 ## Setup :wrench: <a name="setup"></a> ##
 
-Set the keymapings as you see fit, here is one example:
+Set the keybindings as you see fit, here is one example:
 
 ```lua
 require('tmux-switch').setup()
