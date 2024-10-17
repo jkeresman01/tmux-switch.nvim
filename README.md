@@ -34,7 +34,6 @@ TMUX Switch solves this problem by integrating fuzzy search within Neovim, allow
 
 ***
 
-
 ## Repository structure :open_file_folder: <a name="repo"></a> ##
 
 ```bash
@@ -119,7 +118,7 @@ vim.keymap.set("n", "<leader>rs", "<CMD>TmuxRenameSession<CR>"
 ```
 ***
 
-| Key - map     | Action                                                             |
+| Keybindings   | Action                                                             |
 |---------------|--------------------------------------------------------------------|
 | `<C-f>`       | Lunch TMUX switch UI (fuzzy search trough tmux sessions)           |
 | `<leader>cs`  | Lunch TMUX switch UI (create new TMUX session and name it)         |
