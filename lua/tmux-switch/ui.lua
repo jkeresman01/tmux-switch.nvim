@@ -18,7 +18,6 @@ local M = {}
 -- @param default_value The default value for the input (optional)
 -- @param on_submit The function to call when the user submits the input
 --
--- @return nil
 function M.create_input_prompt(prompt_text, default_value, on_submit)
     local input = nui_input({
         position = "50%",
@@ -56,7 +55,6 @@ end
 --
 -- @param tmux_sessions A list of tmux sessions to display in the picker
 --
--- @return nil
 function M.show_tmux_session_picker(tmux_sessions)
     local opts = themes.get_dropdown({
         layout_config = { width = 50 },

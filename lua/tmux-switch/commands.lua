@@ -2,14 +2,6 @@ local tmux = require("tmux-switch.tmux")
 
 local M = {}
 
--- Registers custom user commands for tmux operations
---
--- This function creates three custom commands in Neovim:
--- - `TmuxSwitch`: Opens the tmux session switcher.
--- - `TmuxCreateSession`: Creates a new tmux session with a specified name.
--- - `TmuxRenameSession`: Renames the current tmux session.
---
--- @return nil
 function M.register()
     vim.api.nvim_create_user_command("TmuxSwitch", function()
         tmux.switch()

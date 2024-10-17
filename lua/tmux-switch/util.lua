@@ -2,9 +2,6 @@ local M = {}
 
 -- Retrieves the list of available tmux sessions
 --
--- This function runs a system command to list all tmux sessions and returns them
--- as a table of session names.
---
 -- @return A table containing the names of tmux sessions, or an empty table if an error occurs
 function M.get_tmux_sessions()
     local list_tmux_sessions_cmd = "tmux ls | awk -F ':' '{print $1}'"
@@ -28,11 +25,8 @@ end
 
 -- Switches to the specified tmux session
 --
--- This function switches to the tmux session specified by the session name.
---
 -- @param session_name The name of the tmux session to switch to
 --
--- @return nil
 function M.switch_to_session(session_name)
     if session_name then
         local switch_to_session_cmd = string.format("tmux switch -t %s", session_name)
@@ -42,11 +36,8 @@ end
 
 -- Creates a new tmux session
 --
--- This function creates a new tmux session with the specified session name.
---
 -- @param session_name The name of the new tmux session to create
 --
--- @return nil
 function M.create_new_session(session_name)
     if session_name and session_name ~= "" then
         local create_new_session_cmd = string.format("tmux new-session -d -s %s", session_name)
@@ -54,9 +45,7 @@ function M.create_new_session(session_name)
     end
 end
 
--- Retrieves the name of the current tmux session
---
--- This function runs a system command to get the name of the current tmux session.
+-- Gets the name of the current tmux session
 --
 -- @return The name of the current tmux session, or `nil` if an error occurs
 function M.get_current_tmux_session()
@@ -76,11 +65,8 @@ end
 
 -- Renames the current tmux session
 --
--- This function renames the current tmux session to the new specified name.
---
 -- @param new_session_name The new name for the current tmux session
 --
--- @return nil
 function M.rename_current_session(new_session_name)
     local rename_current_session_cmd = string.format("tmux rename-session %s", new_session_name)
     vim.fn.system(rename_current_session_cmd)
