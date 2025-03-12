@@ -9,14 +9,13 @@
 -- File: commands.lua
 -- Author: Josip Keresman
 
-
 local tmux = require("tmux-switch.tmux")
 
 local M = {}
 
-function M.register()
+function M.register(config)
     vim.api.nvim_create_user_command("TmuxSwitch", function()
-        tmux.switch()
+        tmux.switch(config)
     end, {
         desc = "Run tmux switch picker",
     })
