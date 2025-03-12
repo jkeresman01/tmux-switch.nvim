@@ -9,15 +9,7 @@
 -- File: ui.lua
 -- Author: Josip Keresman
 
-
 local util = require("tmux-switch.util")
-
-local actions = require("telescope.actions")
-local action_state = require("telescope.actions.state")
-local finders = require("telescope.finders")
-local pickers = require("telescope.pickers")
-local sorters = require("telescope.sorters")
-local themes = require("telescope.themes")
 
 local nui_input = require("nui.input")
 local event = require("nui.utils.autocmd").event
@@ -63,37 +55,55 @@ function M.create_input_prompt(prompt_text, default_value, on_submit)
     end)
 end
 
---- Displays a tmux session picker using Telescope
+--- Displays a tmux session picker using Telescope or vim.ui.select
 --
 -- @param tmux_sessions A list of tmux sessions to display in the picker
+-- @param not_use_telescope A boolean indicating whether to use vim.ui.select instead of Telescope (default: false)
 --
-function M.show_tmux_session_picker(tmux_sessions)
-    local opts = themes.get_dropdown({
-        layout_config = { width = 50 },
-    })
+function M.show_tmux_session_picker(tmux_sessions, not_use_telescope)
+    if not_use_telescope then
+        vim.ui.select(tmux_sessions, {
+            prompt = "Select TMUX session:",
+        }, function(selected_session)
+            if selected_session then
+                util.switch_to_session(selected_session)
+            end
+        end)
+    else
+        local actions = require("telescope.actions")
+        local action_state = require("telescope.actions.state")
+        local finders = require("telescope.finders")
+        local pickers = require("telescope.pickers")
+        local sorters = require("telescope.sorters")
+        local themes = require("telescope.themes")
 
-    pickers
-        .new(opts, {
-            prompt_title = "TMUX switch",
-
-            finder = finders.new_table({
-                results = tmux_sessions,
-            }),
-
-            sorter = sorters.get_generic_fuzzy_sorter(opts),
-
-            attach_mappings = function(prompt_bufnr)
-                actions.select_default:replace(function()
-                    actions.close(prompt_bufnr)
-                    local selected_session = action_state.get_selected_entry()
-                    if selected_session then
-                        util.switch_to_session(selected_session.value)
-                    end
-                end)
-                return true
-            end,
+        local opts = themes.get_dropdown({
+            layout_config = { width = 50 },
         })
-        :find()
+
+        pickers
+            .new(opts, {
+                prompt_title = "TMUX switch",
+
+                finder = finders.new_table({
+                    results = tmux_sessions,
+                }),
+
+                sorter = sorters.get_generic_fuzzy_sorter(opts),
+
+                attach_mappings = function(prompt_bufnr)
+                    actions.select_default:replace(function()
+                        actions.close(prompt_bufnr)
+                        local selected_session = action_state.get_selected_entry()
+                        if selected_session then
+                            util.switch_to_session(selected_session.value)
+                        end
+                    end)
+                    return true
+                end,
+            })
+            :find()
+    end
 end
 
 return M

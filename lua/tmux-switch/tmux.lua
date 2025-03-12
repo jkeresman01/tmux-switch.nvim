@@ -9,15 +9,14 @@
 -- File: tmux.lua
 -- Author: Josip Keresman
 
-
 local ui = require("tmux-switch.ui")
 local util = require("tmux-switch.util")
 
 local M = {}
 
-function M.switch()
+function M.switch(config)
     local tmux_sessions = util.get_tmux_sessions()
-    ui.show_tmux_session_picker(tmux_sessions)
+    ui.show_tmux_session_picker(tmux_sessions, config.not_use_telescope)
 end
 
 function M.create_session()
