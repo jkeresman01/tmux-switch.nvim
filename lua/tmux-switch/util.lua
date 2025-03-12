@@ -9,14 +9,20 @@
 -- File: util.lua
 -- Author: Josip Keresman
 
-
 local M = {}
 
 -- Retrieves the list of available tmux sessions
 --
 -- @return A table containing the names of tmux sessions, or an empty table if an error occurs
-function M.get_tmux_sessions()
-    local list_tmux_sessions_cmd = "tmux ls | awk -F ':' '{print $1}'"
+function M.get_tmux_sessions(config)
+    local list_tmux_sessions_cmd
+    if config and config.sort_by_recent_use then
+        vim.notify("sort by recent use")
+        list_tmux_sessions_cmd =
+            "tmux ls -F '#{session_last_attached} #{session_name}' | sort -nr | awk '{print $2}'"
+    else
+        list_tmux_sessions_cmd = "tmux ls | awk -F ':' '{print $1}'"
+    end
     local handle = io.popen(list_tmux_sessions_cmd)
 
     if not handle then
