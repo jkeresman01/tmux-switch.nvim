@@ -55,7 +55,7 @@ tmux-switch.nvim/
 - [x] Fuzzy find trough all tmux session and navigate to selected one
 - [x] Floating UI for creating new sessions
 - [x] Floating UI for renaming current session
-- [ ] Quick switch between 2 most used sessions
+- [ ] Quick switch between 2 most used sessions (works when the `sort_by_recent_use` option is set to true, then just enter the `:TmuxSwitch` command and select the first one)
 ***
 
 ## Installation :star: <a name="installation"></a> ##
