@@ -61,6 +61,7 @@ tmux-switch.nvim/
 ## Installation :star: <a name="installation"></a> ##
  * Make sure you have Neovim v0.9.0 or greater. :exclamation:
  * Dependecies: nui && telescope && plenary (telescope dep)
+   + can be used without telescope, when the config option `not_use_telescope` is set to true. Then `vim.ui.select` is used.
  * Install using you plugin manager
 
 
