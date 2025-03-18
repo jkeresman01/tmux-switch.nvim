@@ -110,7 +110,7 @@ Following commands have been exposed to Neovim:
 Set the keybindings as you see fit, here is one example:
 
 ```lua
-require('tmux-switch').setup()
+require('tmux-switch').setup({})
 
 vim.keymap.set("n", "<C-f>", "<CMD>TmuxSwitch<CR>")
 vim.keymap.set("n", "<leader>cs", "<CMD>TmuxCreateSession<CR>"
